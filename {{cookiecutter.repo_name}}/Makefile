@@ -1,6 +1,12 @@
 app:
 	cd django/{{cookiecutter.repo_name}}/ && cookiecutter https://github.com/rpedigoni/cookiecutter-django-app
 
+syncdb:
+	django/{{cookiecutter.repo_name}}/./manage.py makemigrations --settings=settings.development && django/{{cookiecutter.repo_name}}/./manage.py migrate --settings=settings.development
+
+start:
+	django/{{cookiecutter.repo_name}}/./manage.py collectstatic --noinput --settings=settings.development && django/{{cookiecutter.repo_name}}/./manage.py runserver --settings=settings.development
+
 test:
 	coverage run --branch --source=django/{{cookiecutter.repo_name}}  django/{{cookiecutter.repo_name}}/./manage.py test django/{{cookiecutter.repo_name}}/ -v 2 --failfast --settings=settings.test
 	coverage report --omit=django/{{cookiecutter.repo_name}}/*/migrations*,django/{{cookiecutter.repo_name}}/settings/*,django/{{cookiecutter.repo_name}}/urls.py,django/{{cookiecutter.repo_name}}/wsgi.py,django/{{cookiecutter.repo_name}}/manage.py,django/{{cookiecutter.repo_name}}/*/tests/*,django/{{cookiecutter.repo_name}}/__init__.py

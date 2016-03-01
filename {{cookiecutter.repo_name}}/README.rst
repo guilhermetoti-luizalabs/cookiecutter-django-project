@@ -16,14 +16,12 @@ Install requirements via ``pip``: ::
 
 Create database tables: ::
 
-    # on django/{{cookiecutter.repo_name}}
-    ./manage.py syncdb --all --settings=settings.development
+    make syncdb
 
 
 Run the project: ::
 
-    # on django/{{cookiecutter.repo_name}}
-    ./manage.py runserver --settings=settings.development
+    make start
 
 
 Tests

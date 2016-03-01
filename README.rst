@@ -32,9 +32,19 @@ And install the project dependencies: ::
     pip install -r django/requirements/development.txt
 
 
+Create database tables: ::
+
+    make syncdb
+
+
 You're ready to go: ::
 
     make test
+
+
+Run the project: ::
+
+    make start
 
 
 A more detailed guide will be available on your project's ``README.rst`` file... or `here`_.
